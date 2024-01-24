@@ -25,3 +25,12 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
+
+Route::get('/singlepage', function () {
+    return view('singlepage');
+});
+
+
+Route::get('/announcements', function () {
+    return view('announcements');
+});

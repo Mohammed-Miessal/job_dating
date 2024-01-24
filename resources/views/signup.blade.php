@@ -27,7 +27,7 @@
               <div class="sm:mx-auto sm:w-full sm:max-w-sm">
                 <div class="flex items-center justify-center">
                   {{-- // ! Logo --}}
-                  <img class="h-32 " src="{{ asset('images/logo.svg') }}" alt="Logo image" />
+                  <img class="h-10 mb-10 " src="{{ asset('images/logo.png') }}" alt="Logo image" />
                 </div>
                 <h2 class="font-lora  text-center text-2xl  leading-9 tracking-tight text-gray-900">
                   Sign up
