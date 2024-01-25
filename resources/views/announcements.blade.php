@@ -14,7 +14,7 @@
         }
     </script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
 </head>
 
 
@@ -78,7 +78,7 @@
                 <div class="space-y-8 lg:divide-y lg:divide-gray-100">
                     <div class="mt-12 text-center">
                         <h2 class=" my-3.5 text-2xl font-bold  font-nunito md:text-4xl   ">
-                            All Announcements 
+                            All Announcements
                         </h2>
 
                     </div>

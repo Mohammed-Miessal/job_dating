@@ -14,7 +14,6 @@
     }
   </script>
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 
 
@@ -102,7 +101,7 @@
         </div>
       </div>
       <div class="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl">
-        <img src="https://agencex-astro.vercel.app/images/image1.webp" alt="Hero image" width="2350" height="2359" class="lg:absolute lg:w-full lg:h-full rounded-3xl object-cover lg:max-h-none max-h-96">
+        <img src="{{ asset('images/main.webp') }}" alt="Hero image" width="2350" height="2359" class="lg:absolute lg:w-full lg:h-full rounded-3xl object-cover lg:max-h-none max-h-96">
       </div>
     </div>
   </section>
@@ -185,10 +184,10 @@
 
     <div class="text-center mt-3">
 
-      <a href="/announcements" class="group flex items-center justify-between gap-4 rounded-lg border border-current px-5 py-3 text-indigo-600 transition-colors hover:bg-indigo-600 focus:outline-none focus:ring active:bg-indigo-500">
+      <a href="/announcements" class="group flex items-center justify-between gap-4 rounded-lg border border-current px-5 py-3 text-blue-600 transition-colors hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500">
         <span class="font-medium transition-colors group-hover:text-white"> Find out more </span>
 
-        <span class="shrink-0 rounded-full border border-indigo-600 bg-white p-2 group-active:border-indigo-500">
+        <span class="shrink-0 rounded-full border border-blue-600 bg-white p-2 group-active:border-blue-500">
           <svg class="h-5 w-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
@@ -198,7 +197,7 @@
     </div>
   </div>
 
-  <!-- Annoncements -->
+  <!-- Announcements -->
 
 
 

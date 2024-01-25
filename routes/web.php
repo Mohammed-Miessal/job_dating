@@ -34,3 +34,13 @@ Route::get('/singlepage', function () {
 Route::get('/announcements', function () {
     return view('announcements');
 });
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
+
+Route::get('/dashann', function () {
+    return view('dashann');
+});
