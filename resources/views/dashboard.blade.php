@@ -50,7 +50,7 @@
 
             <div class="px-2">
                 <div class="py-4">
-                    <a href="dashboard" class="t group relative flex justify-center rounded bg-gray-100 px-2 py-1.5 text-blue-700">
+                    <a href="" class="t group relative flex justify-center rounded bg-gray-100 px-2 py-1.5 text-blue-700">
                         <img src="{{ asset('images/dash.png') }}" alt="" class="h-10  w-10" />
 
                         <span class="z-10 absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white invisible group-hover:visible">
@@ -61,7 +61,7 @@
 
                 <ul class="space-y-1 border-t border-gray-100 pt-4">
                     <li>
-                        <a href="dashann" class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700">
+                        <a href="announcements" class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700">
                             <img src="{{ asset('images/announce.png') }}" alt="" class=" w-10 h-10  " />
                             <span class=" z-10 absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white invisible group-hover:visible">
                                 Announcements
@@ -71,7 +71,7 @@
 
 
                     <li>
-                        <a href="dashann" class="mt-4 group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700">
+                        <a href="companies" class="mt-4 group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700">
                             <img src="{{ asset('images/company.png') }}" alt="" class="w-10 h-10 " />
                             <span class=" z-10 absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white invisible group-hover:visible">
                                 Companies

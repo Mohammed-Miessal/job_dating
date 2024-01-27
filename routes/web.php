@@ -36,11 +36,20 @@ Route::get('/announcements', function () {
 });
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+// ! Dashboard routes 
+Route::prefix('dashboard')->group(function () {
+
+    Route::get('/', function () {
+        return view('dashboard');
+    });
 
 
-Route::get('/dashann', function () {
-    return view('dashann');
+    Route::get('/announcements', function () {
+        return view('dashann');
+    });
+
+
+    Route::get('/companies', function () {
+        return view('companies');
+    });
 });
