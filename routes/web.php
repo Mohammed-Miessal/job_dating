@@ -17,39 +17,31 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/signup', function () {
-    return view('signup');
-});
-
-
-Route::get('/singlepage', function () {
-    return view('singlepage');
-});
-
-
-Route::get('/announcements', function () {
-    return view('announcements');
-});
 
 
 // ! Dashboard routes 
 Route::prefix('dashboard')->group(function () {
 
     Route::get('/', function () {
-        return view('dashboard');
+        return view('admin.stats');
     });
 
 
     Route::get('/announcements', function () {
-        return view('dashann');
+        return view('admin.announcements.read');
     });
 
 
     Route::get('/companies', function () {
-        return view('companies');
+        return view('admin.companies.read');
+    });
+
+
+    Route::get('/announcements/edit', function () {
+        return view('admin.announcements.edit');
+    });
+
+    Route::get('/companies/edit', function () {
+        return view('admin.companies.edit');
     });
 });

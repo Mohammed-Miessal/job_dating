@@ -11,31 +11,31 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-        Schema::create('announcement', function (Blueprint $table) {
-            $table->id();
+        Schema::create('announcements', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('title');
             $table->string('description');
             $table->longText('content');
-            $table->enum('status', ['Pending', 'Approved', 'Rejected'])->notNull();
-            $table->string('image_path');
-            $table->unsignedBigInteger('user_id')->notNull();
-            $table->unsignedBigInteger('company_id')->notNull();
+            // $table->string('image');
 
-            $table->timestamps();
+            // ? foreign keys : 
 
-            // ? Foreign keys :
             $table->foreign('user_id')
                 ->references('id')
-                ->on('user')
+                ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
             $table->foreign('company_id')
                 ->references('id')
-                ->on('company')
+                ->on('companies')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+
+
+            $table->softDeletes();
+
+            $table->timestamps();
         });
     }
 
@@ -44,7 +44,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
-        Schema::dropIfExists('announcement');
+        Schema::dropIfExists('announcements');
     }
 };
