@@ -23,7 +23,8 @@ class UpdateCompanyRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:25',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048', // Validate image file types
+            // 'image' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048', // Validate image file types
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg,webp', // Validate image file types
         ];
     }
 }

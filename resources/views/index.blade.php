@@ -12,7 +12,7 @@
             <span
                 class="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-blue-600 to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90"></span>
             <div
-                class="relative flex flex-col items-center text-center lg:text-left lg:py-7 xl:py-8 
+                class="relative flex flex-col items-center text-center lg:text-left lg:py-7 xl:py-8
             lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2">
 
                 <h1
@@ -153,9 +153,11 @@
 
         </div>
 
+
+
         <div class="text-center mt-3">
 
-            <a href="/announcements"
+            <a href="{{ route('allannouncements.index') }}"
                 class="group flex items-center justify-between gap-4 rounded-lg border border-current px-5 py-3 text-blue-600 transition-colors hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500">
                 <span class="font-medium transition-colors group-hover:text-white"> Find out more </span>
 

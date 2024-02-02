@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Company;
 use App\Models\User;
@@ -29,8 +30,8 @@ class AnnouncementController extends Controller
     {
         //
         $companies = Company::all();
-        $users = User::all();
-        return view('admin.announcements.add', compact('companies', 'users'));
+        // $users = User::all();
+        return view('admin.announcements.add', compact('companies'));
     }
 
     /**
@@ -38,6 +39,8 @@ class AnnouncementController extends Controller
      */
     public function store(StoreAnnouncementRequest $request)
     {
+
+        // $user = Auth::user();
         //
         $validatedData = $request->validated();
         $announcement = new Announcement([
@@ -45,6 +48,7 @@ class AnnouncementController extends Controller
             'description' => $validatedData['description'],
             'content' => $validatedData['content'],
             'user_id' => $validatedData['user_id'],
+            // 'user_id' => $user->id,
             'company_id' => $validatedData['company_id'],
         ]);
 
@@ -78,10 +82,10 @@ class AnnouncementController extends Controller
     {
         //
         $companies = Company::all();
-        $users = User::all();
+        // $users = User::all();
 
         // dd($announcement);
-        return view('admin.announcements.edit', compact('announcement', 'users', 'companies'));
+        return view('admin.announcements.edit', compact('announcement', 'companies'));
     }
 
     /**
@@ -89,18 +93,38 @@ class AnnouncementController extends Controller
      */
 
 
+
+
+    // public function update(UpdateAnnouncementRequest $request, $id)
+    // {
+
+    //     // dd($request);
+    //     $validatedData = $request->validated();
+    //     dd($id);
+
     public function update(UpdateAnnouncementRequest $request, $id)
     {
+        // dd($request);
         $validatedData = $request->validated();
 
+        // Déboguer pour vérifier la valeur de $announcement
         $announcement = Announcement::findOrFail($id);
+        // dd($announcement);
 
         $announcement->title = $validatedData['title'];
         $announcement->description = $validatedData['description'];
         $announcement->content = $validatedData['content'];
-        // You may want to check if 'user_id' and 'company_id' are present in the request before updating
-        $announcement->user_id = $validatedData['user_id'] ?? $announcement->user_id;
-        $announcement->company_id = $validatedData['company_id'] ?? $announcement->company_id;
+        $announcement->user_id = $validatedData['user_id'];
+        $announcement->company_id = $validatedData['company_id'];
+
+        // if ($request->hasFile('image')) {
+        //     // Delete the old image
+        //     Storage::disk('public')->delete('announcement_images/' . $announcement->image);
+
+        //     // Upload the new image
+        //     $imagePath = $request->file('image')->store('announcement_images', 'public');
+        //     $announcement->image = basename($imagePath);
+        // }
 
         if ($request->hasFile('image')) {
             // Delete the old image
@@ -110,6 +134,8 @@ class AnnouncementController extends Controller
             $imagePath = $request->file('image')->store('announcement_images', 'public');
             $announcement->image = basename($imagePath);
         }
+
+
 
         $announcement->save();
 

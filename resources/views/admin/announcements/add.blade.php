@@ -10,6 +10,8 @@
 
         <form action="{{ route('announcements.store') }}" method="post" id="myForm" enctype="multipart/form-data">
             @csrf
+
+            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
                     <label for="title" class="text-sm font-medium text-gray-900 block mb-2">Title</label>
@@ -40,18 +42,6 @@
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                    <label for="user_id" class="text-sm font-medium text-gray-900 block mb-2">User</label>
-                    <select id="user_id" name="user_id"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="" disabled>Choose a User</option>
-                        @foreach ($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
-                        @endforeach
-
-                    </select>
-
-                </div>
-                <div class="col-span-6 sm:col-span-3">
                     <label for="image" class="text-sm font-medium text-gray-900 block mb-2">image</label>
                     <input type="file" name="image" id="image" accept="image/*"
                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5">
@@ -62,7 +52,8 @@
                 <div class="col-span-full">
                     <label for="content" class="text-sm font-medium text-gray-900 block mb-2">Content</label>
 
-                    <textarea name="content" id="content">
+                    <textarea name="content" id="content"
+                        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5">
 
                     </textarea>
 

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DisplayAnnouncements;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,16 +23,17 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
 
+Auth::routes();
 
 // ! Dashboard routes
-Route::prefix('dashboard')->group(function () {
+Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+
 
     // ? Dashboard :
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+    // Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::match(['get', 'post'], '/', [DashboardController::class, 'index'])->name('dashboard.index');
+
 
 
     // ? Companies routes :
@@ -51,6 +54,13 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/announcements/edit/{announcement}', [AnnouncementController::class, 'edit'])->name('announcements.edit');
     Route::put('/announcements/update/{announcement}', [AnnouncementController::class, 'update'])->name('announcements.update');
     Route::delete('/announcements/delete/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcements.delete');
-
-
 });
+
+
+
+Route::get('/announcements', [DisplayAnnouncements::class, 'index'])->name('allannouncements.index');
+
+// Route::get('/announcements' , function (){
+
+//     return view('announcements');
+// });

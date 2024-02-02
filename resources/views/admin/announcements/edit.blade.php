@@ -10,8 +10,12 @@
 
         <form action="{{ route('announcements.update', $announcement->id) }}" method="post" id="myForm"
             enctype="multipart/form-data">
+
+
             @csrf
             @method('PUT')
+
+
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
                     <label for="title" class="text-sm font-medium text-gray-900 block mb-2">Title</label>
@@ -42,20 +46,7 @@
                     </select>
                 </div>
 
-                <div class="col-span-6 sm:col-span-3">
-                    <label for="user_id" class="text-sm font-medium text-gray-900 block mb-2">User</label>
-                    <select id="user_id" name="user_id"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="" disabled>Choose a User</option>
-
-                        @foreach ($users as $user)
-                            <option value="{{ $user->id }}" {{ $announcement->user_id == $user->id ? 'selected' : '' }}>
-                                {{ $user->name }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
+                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
 
                 <div class="col-span-6 sm:col-span-3">
                     <label for="image" class="text-sm font-medium text-gray-900 block mb-2">image</label>

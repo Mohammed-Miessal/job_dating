@@ -148,7 +148,8 @@
             <div
                 class="flex align-bottom justify-center flex-col   sticky inset-x-0 bottom-0 border-t border-gray-100 bg-white p-2 dark:bg-gray-200">
                 <div class=" flex align-middle justify-center ">
-                    <form action="/">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
                         <button type="submit"
                             class="group relative flex w-full justify-center rounded-lg px-2 py-1.5 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-75" fill="none"
@@ -163,7 +164,6 @@
                             </span>
                         </button>
                     </form>
-
                 </div>
                 <div class=" flex align-middle justify-center ">
                     <!-- dark mode button -->
@@ -206,13 +206,13 @@
 
                                     <div class="relative flex items-center ml-2 lg:ml-4">
                                         <!-- Dropdown menu  -->
-                                        <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar"
+                                        {{-- <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar"
                                             type="button"
                                             class="flex  text-sm  rounded-full  focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600  mr-10   items-center justify-center w-10 h-10  font-semibold leading-normal text-center text-white align-middle transition-colors duration-150 ease-in-out shadow-none cursor-pointer   ">
                                             <span class="sr-only">Open user menu</span>
                                             <img class="w-full h-10 rounded-full" src="{{ asset('images/user.jpg') }}"
                                                 alt="user photo" />
-                                        </button>
+                                        </button> --}}
 
                                         <div id="dropdownAvatar"
                                             class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">

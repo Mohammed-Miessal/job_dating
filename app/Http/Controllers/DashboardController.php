@@ -9,19 +9,17 @@ use App\Models\Announcement;
 
 class DashboardController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-
         $companyCount = Company::count();
-
-
         $userCount = User::count();
-
-
         $announcementCount = Announcement::count();
-
-
-
         return view('admin.stats', compact(
             'companyCount',
             'userCount',
