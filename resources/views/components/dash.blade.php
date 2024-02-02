@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
-    <script src="https://cdn.tiny.cloud/1/icckv8ex6g53igkxo8qrfx7xy860y22rsa3di945zsiyc4am/tinymce/6/tinymce.min.js"
+    <script src="https://cdn.tiny.cloud/1/vsrjyi1h7qdx344wmh8izqmq4pzw7fqg2wa4fx9iavb8s08v/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
 
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/riva-dashboard.css" />
 
     <script>
-        // On page load or when changing themes 
+        // On page load or when changing themes
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
                 '(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -20,25 +20,25 @@
             document.documentElement.classList.remove('dark')
         }
 
-        // Tiny script 
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
-            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
-            mergetags_list: [{
-                    value: 'First.Name',
-                    title: 'First Name'
-                },
-                {
-                    value: 'Email',
-                    title: 'Email'
-                },
-            ],
-            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject(
-                "See docs to implement AI Assistant")),
-        });
+        // Tiny script
+        // tinymce.init({
+        //     selector: 'textarea',
+        //     plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+        //     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+        //     tinycomments_mode: 'embedded',
+        //     tinycomments_author: 'Author name',
+        //     mergetags_list: [{
+        //             value: 'First.Name',
+        //             title: 'First Name'
+        //         },
+        //         {
+        //             value: 'Email',
+        //             title: 'Email'
+        //         },
+        //     ],
+        //     ai_request: (request, respondWith) => respondWith.string(() => Promise.reject(
+        //         "See docs to implement AI Assistant")),
+        // });
     </script>
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -102,7 +102,7 @@
 
             <div class="px-2">
                 <div class="py-4">
-                    <a href=""
+                    <a href="dashboard"
                         class="t group relative flex justify-center rounded bg-gray-100 px-2 py-1.5 text-blue-700">
                         <img src="{{ asset('images/dash.png') }}" alt="" class="h-10  w-10" />
 
@@ -115,7 +115,7 @@
 
                 <ul class="space-y-1 border-t border-gray-100 pt-4">
                     <li>
-                        <a href="announcements"
+                        <a href="{{ route('announcements.index') }}"
                             class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700">
                             <img src="{{ asset('images/announce.png') }}" alt="" class=" w-10 h-10  " />
                             <span
@@ -127,7 +127,7 @@
 
 
                     <li>
-                        <a href="companies"
+                        <a href="{{ route('companies.index') }}"
                             class="mt-4 group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700">
                             <img src="{{ asset('images/company.png') }}" alt="" class="w-10 h-10 " />
                             <span

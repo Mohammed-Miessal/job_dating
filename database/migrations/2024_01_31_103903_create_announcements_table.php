@@ -12,30 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('announcements', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('title');
             $table->string('description');
             $table->longText('content');
-            // $table->string('image');
+            $table->text('image')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('company_id');
+            $table->timestamps();
 
-            // ? foreign keys : 
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-
-            $table->foreign('company_id')
-                ->references('id')
-                ->on('companies')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-
+            // Foreign keys
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
 
             $table->softDeletes();
-
-            $table->timestamps();
         });
     }
 

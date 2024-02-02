@@ -13,5 +13,6 @@ class AnnouncementSeeder extends Seeder
     public function run(): void
     {
         //
+        \App\Models\Announcement::factory(10)->create();
     }
 }

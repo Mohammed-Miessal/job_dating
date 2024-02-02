@@ -8,20 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'image'];
 
-
-    /**
-     * 
-     *  Table name
-     * 
-     */
-    protected $table = 'companies';
-
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = ['title', 'description', 'content', 'status', 'user_id', 'company_id'];
+    // Relationship with the Announcement model
+    public function announcements()
+    {
+        return $this->hasMany(Announcement::class, 'company_id');
+    }
 }
