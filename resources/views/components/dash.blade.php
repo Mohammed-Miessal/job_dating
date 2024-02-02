@@ -102,7 +102,7 @@
 
             <div class="px-2">
                 <div class="py-4">
-                    <a href="dashboard"
+                    <a href="{{ route('dashboard.index') }}"
                         class="t group relative flex justify-center rounded bg-gray-100 px-2 py-1.5 text-blue-700">
                         <img src="{{ asset('images/dash.png') }}" alt="" class="h-10  w-10" />
 

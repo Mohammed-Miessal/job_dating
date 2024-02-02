@@ -11,9 +11,9 @@
                     </svg>
                 </div>
                 <h6 class="text-4xl  text-purple-600 font-custom">
-                    819
+                   {{ $userCount }}
                 </h6>
-                <p class="mb-2 font-bold text-md ">Customers</p>
+                <p class="mb-2 font-bold text-md ">Users</p>
             </div>
 
             <div class="text-center md:border-r">
@@ -25,9 +25,9 @@
                     </svg>
                 </div>
                 <h6 class="text-4xl  text-purple-600 font-custom">
-                    1.3K
+                    {{ $companyCount }}
                 </h6>
-                <p class="mb-2 font-bold text-md">Suppliers</p>
+                <p class="mb-2 font-bold text-md">Companies</p>
             </div>
 
             <div class="text-center md:border-r">
@@ -39,9 +39,9 @@
                     </svg>
                 </div>
                 <h6 class="text-4xl  text-purple-600 font-custom">
-                    91
+                    {{ $announcementCount }}
                 </h6>
-                <p class="mb-2 font-bold text-md">Customers</p>
+                <p class="mb-2 font-bold text-md">Announcements</p>
             </div>
 
             <div class="text-center ">
@@ -53,9 +53,9 @@
                     </svg>
                 </div>
                 <h6 class="text-4xl  text-purple-600 font-custom">
-                    52
+                    XXX
                 </h6>
-                <p class="mb-2 font-bold text-md">Suppliers</p>
+                <p class="mb-2 font-bold text-md">XXX</p>
             </div>
         </div>
     </div>

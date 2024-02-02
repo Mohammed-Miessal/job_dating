@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,10 +29,8 @@ Route::get('/login', function () {
 // ! Dashboard routes
 Route::prefix('dashboard')->group(function () {
 
-    Route::get('/', function () {
-        return view('admin.stats');
-    });
-
+    // ? Dashboard :
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
 
     // ? Companies routes :
@@ -42,7 +41,6 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/companies/edit/{company}', [CompanyController::class, 'edit'])->name('companies.edit');
     Route::put('/companies/update/{company}', [CompanyController::class, 'update'])->name('companies.update');
     Route::delete('/companies/delete/{company}', [CompanyController::class, 'destroy'])->name('companies.delete');
-
 
 
     // ? Companies routes :
