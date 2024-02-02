@@ -43,16 +43,21 @@
                                         alt="text">
                                 </div>
                                 <div>
-                                    <span
-                                        class="text-sm text-gray-500">{{ \Carbon\Carbon::parse($announcement->created_at)->format('Y-m-d') }}
+                                    <span class="text-sm text-gray-500">
+                                        <span class="text-gray-600  ">
+                                            {{ \Carbon\Carbon::parse($announcement->created_at)->format('F d. m. y') }}
+                                        </span>
                                     </span>
                                     <br>
                                     <span class="text-sm text-gray-600 font-bold ">
-                                      Company name :  <span class="text-blue-600 underline  " >{{ $announcement->company->name }}</span>
+                                        Company name : <span
+                                            class="text-blue-600 underline  ">{{ $announcement->company->name }}</span>
                                     </span>
                                     <p class="mt-3 text-lg font-medium leading-6">
-                                        <a href="./blog-post.html"
-                                            class="text-xl text-gray-800 group-hover:text-gray-500 lg:text-2xl">{{ $announcement->title }}</a>
+                                        <a href="{{ route('showannouncements.show', $announcement->id) }}"
+                                            class="text-xl text-gray-800 group-hover:text-gray-500 lg:text-2xl">
+                                            {{ $announcement->title }}
+                                        </a>
                                     </p>
                                     <p class="mt-2 text-lg text-gray-500">
                                         {{ $announcement->description }}

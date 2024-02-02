@@ -23,8 +23,8 @@ class StoreAnnouncementRequest extends FormRequest
     {
         return [
             //
-            'title' => 'required|string|max:50',
-            'description' => 'required|string|max:100',
+            'title' => 'required|string|max:100',
+            'description' => 'required|string|max:255',
             'content' => 'required|string',
             'user_id' => 'required|integer',
             'company_id' => 'required|integer',

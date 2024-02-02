@@ -23,6 +23,9 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/announcements', [DisplayAnnouncements::class, 'index'])->name('allannouncements.index');
+Route::get('/announcements/show/{id}', [DisplayAnnouncements::class, 'show'])->name('showannouncements.show');
+
 
 Auth::routes();
 
@@ -55,12 +58,3 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::put('/announcements/update/{announcement}', [AnnouncementController::class, 'update'])->name('announcements.update');
     Route::delete('/announcements/delete/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcements.delete');
 });
-
-
-
-Route::get('/announcements', [DisplayAnnouncements::class, 'index'])->name('allannouncements.index');
-
-// Route::get('/announcements' , function (){
-
-//     return view('announcements');
-// });
